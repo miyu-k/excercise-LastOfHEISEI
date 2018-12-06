@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script type="text/javascript">
+        <div class="relative">
+            <img src="image/base.jpg" alt="" />
+            <img src="image/point.png" alt="" class="absolute" />
+        </div>
+
+        // 設定開始（メッセージの内容と動きを設定してください）
+
+        var msg = 'J'; // メッセージ内容
+        var speed = 1000; // 点滅のスピード（1に近いほど速く）
+
+        // 設定終了
+
+
+        var flag = 0;
+
+        function disp() {
+
+            if (flag == 0) {
+
+                // テキストフィールドにデータを渡す処理
+                document.form1.field1.value = msg;
+                flag = 1;
+
+            }
+            else {
+
+                // テキストフィールドにデータを渡す処理
+                document.form1.field1.value = "";
+                flag = 0;
+
+            }
+
+            setTimeout("disp()", speed);
+
+        }
+    </script>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            setInterval(function () {
+                $('img').fadeOut(500, function () { $(this).fadeIn(500) });
+            }, 1000);
+        });
+    </script>
+</head>
+
+<body onLoad="disp()">
+    <div class="mainvisual">
+        <img src="image/スクリーンショット (1).png" alt="キーボード" width="740px" height="340px">
+    </div>
+
+    <form action="#" name="form1">
+        <input type="text" name="field1" size="20">
+    </form>
+</body>
+
+</html>
